@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
 const port = 3000
-let floor = 0
-let destanationFloor = 0
+floor = 0
+destanationFloor = 0
 
-let outPut = {
+outPut = {
     "fl_light_1": 0,
     "fl_light_2": 0,
     "fl_light_3": 0,
@@ -26,8 +26,13 @@ let outPut = {
 }
 app.use(express.json)
 
+app.get('/', (req, res) => {
+    res.send('TEST')
+})
+
 app.post('/', (req, res) => {
-    let varOutPut = outPut
+    console.log(req.body)
+    varOutPut = outPut
     if (floor == 0) 
     {
         varOutPut["go_down_fast"] = 1
